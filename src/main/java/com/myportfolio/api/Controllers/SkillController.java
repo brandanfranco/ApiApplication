@@ -8,6 +8,7 @@ import com.myportfolio.api.Models.Skill;
 import com.myportfolio.api.Services.SkillService;
 import java.util.ArrayList;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,6 +26,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/api/skill")
+@CrossOrigin
 public class SkillController {
 
     @Autowired
@@ -36,12 +38,14 @@ public class SkillController {
         return skillService.getAllSkills();
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping()
     public Skill saveSkill(@RequestBody Skill skill) {
 
         return skillService.saveSkill(skill);
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping("/{id}")
     public String removeSkill(@PathVariable("id") Long id) {
 
@@ -53,6 +57,7 @@ public class SkillController {
         }
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @PutMapping("/edit")
     public String editSkill(@RequestBody Skill skill) {
 

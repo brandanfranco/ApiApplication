@@ -6,6 +6,8 @@ package com.myportfolio.api.security.dto;
 
 import java.util.HashSet;
 import java.util.Set;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
 
 /**
  *
@@ -13,19 +15,21 @@ import java.util.Set;
  */
 public class NuevoUsuario {
     
-    
+    @NotBlank
     private String nombre;
     
-    
+    @NotBlank
     private String nombreUsuario;
    
-   
+   @Email
     private String email;
    
-   
+   @NotBlank
     private String password;
     
     private Set<String> roles= new HashSet<>();
+    
+    
 
     public String getNombre() {
         return nombre;

@@ -7,8 +7,12 @@ package com.myportfolio.api.util;
 import com.myportfolio.api.security.entity.Rol;
 import com.myportfolio.api.security.enums.RolNombre;
 import com.myportfolio.api.security.service.RolService;
+import java.util.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.CommandLineRunner;
+
+import org.springframework.context.ApplicationListener;
+import org.springframework.context.event.ContextRefreshedEvent;
+import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
 
 /**
@@ -16,18 +20,28 @@ import org.springframework.stereotype.Component;
  * @author brand
  */
 @Component
-public class CreateRoles implements CommandLineRunner {
+public class CreateRoles implements 
+  ApplicationListener<ContextRefreshedEvent> {
+    
+    
+
     
     @Autowired
     RolService rolService;
 
-    @Override
+    
     public void run(String... args) throws Exception {
-        Rol rolAdmin = new Rol(RolNombre.ROLE_ADMIN);
+     
+// Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody*/
+    }
+
+    @Override
+    public void onApplicationEvent(ContextRefreshedEvent event) {
+     /*    Rol rolAdmin = new Rol(RolNombre.ROLE_ADMIN);
         Rol rolUser = new Rol(RolNombre.ROLE_USER);
 
         rolService.save(rolAdmin);
-        rolService.save(rolUser);// Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+        rolService.save(rolUser); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    */}
     
 }

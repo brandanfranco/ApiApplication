@@ -8,6 +8,7 @@ import com.myportfolio.api.Models.Proyecto;
 import com.myportfolio.api.Services.ProyectoService;
 import java.util.ArrayList;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,6 +26,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/api/proyecto")
+@CrossOrigin
 public class ProyectoController {
 
     @Autowired
@@ -36,12 +38,15 @@ public class ProyectoController {
         return proyectoService.getAllProyectos();
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping()
     public Proyecto saveProyecto(@RequestBody Proyecto proyecto) {
 
         return proyectoService.saveProyecto(proyecto);
     }
     
+    
+    @PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping("/{id}")
     public String removeProyecto(@PathVariable("id") Long id) {
 
@@ -52,6 +57,7 @@ public class ProyectoController {
         }
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @PutMapping("/edit")
     public String editProyecto(@RequestBody Proyecto proyecto) {
 

@@ -8,6 +8,7 @@ import com.myportfolio.api.Models.Educacion;
 import com.myportfolio.api.Services.EducacionService;
 import java.util.ArrayList;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,6 +26,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/api/educacion")
+@CrossOrigin
 public class EducacionController {
 
     @Autowired
@@ -36,12 +38,14 @@ public class EducacionController {
         return educacionService.getAllEducaciones();
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping()
     public Educacion saveEducacion(@RequestBody Educacion educacion) {
 
         return educacionService.saveEducacion(educacion);
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping("/{id}")
     public String removeEducacion(@PathVariable("id") Long id) {
 
@@ -54,6 +58,7 @@ public class EducacionController {
         }
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @PutMapping("/edit")
     public String editEducacion(@RequestBody Educacion educacion) {
 

@@ -4,17 +4,20 @@
  */
 package com.myportfolio.api.security.dto;
 
+import javax.validation.constraints.NotBlank;
+
 /**
  *
  * @author brand
  */
 public class LoginUsuario {
+    @NotBlank
      private String nombreUsuario;
    
    
     
    
-   
+   @NotBlank
     private String password;
 
     public String getNombreUsuario() {

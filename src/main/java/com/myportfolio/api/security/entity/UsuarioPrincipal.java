@@ -17,7 +17,7 @@ import org.springframework.security.core.userdetails.UserDetails;
  *
  * @author brand
  */
-@Getter @Setter 
+
 public class UsuarioPrincipal implements UserDetails {
     private String nombre;
     private String nombreUsuario;
@@ -27,9 +27,9 @@ public class UsuarioPrincipal implements UserDetails {
     
     
     
- public UsuarioPrincipal(String nombre, String nombreUsuario, String email, String password, Collection<? extends GrantedAuthority> authorities) {
+ public UsuarioPrincipal(String nombre, String usuario, String email, String password, Collection<? extends GrantedAuthority> authorities) {
         this.nombre = nombre;
-        this.nombreUsuario = nombreUsuario;
+        this.nombreUsuario = usuario;
         this.email = email;
         this.password = password;
         this.authorities = authorities;
@@ -75,6 +75,14 @@ public class UsuarioPrincipal implements UserDetails {
     @Override
     public boolean isEnabled() {
         return true; // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public String getEmail() {
+        return email;
     }
 
    

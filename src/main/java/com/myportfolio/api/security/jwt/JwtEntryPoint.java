@@ -4,7 +4,7 @@
  */
 package com.myportfolio.api.security.jwt;
 
-import java.io.IOException;
+import com.myportfolio.api.Models.Mensaje;import java.io.IOException;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -26,8 +26,8 @@ public class JwtEntryPoint implements AuthenticationEntryPoint{
     private final static Logger logger = LoggerFactory.getLogger(JwtEntryPoint.class);
     @Override
     public void commence(HttpServletRequest request, HttpServletResponse response, AuthenticationException authException) throws IOException, ServletException {
-        logger.error("Fail en el metodo commnece");
-        response.sendError(HttpServletResponse.SC_UNAUTHORIZED);   // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        logger.error("Fail en el metodo commence",authException.getMessage() );
+        response.sendError(HttpServletResponse.SC_UNAUTHORIZED );   // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     
 }

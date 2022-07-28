@@ -8,6 +8,7 @@ import com.myportfolio.api.Models.Experiencia;
 import com.myportfolio.api.Services.ExperienciaService;
 import java.util.ArrayList;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,6 +26,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/api/experiencia")
+@CrossOrigin
 public class ExperienciaCoontroller {
 
     @Autowired
@@ -36,6 +38,7 @@ public class ExperienciaCoontroller {
         return experienciaService.getAllExperiencias();
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping()
     public Experiencia saveProyecto(@RequestBody Experiencia experiencia) {
 
@@ -43,6 +46,7 @@ public class ExperienciaCoontroller {
 
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping("/{id}")
     public String removeExperiencia(@PathVariable("id") Long id) {
 
@@ -55,6 +59,7 @@ public class ExperienciaCoontroller {
         }
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @PutMapping("/edit")
     public String editExperiencia(@RequestBody Experiencia experiencia) {
 
