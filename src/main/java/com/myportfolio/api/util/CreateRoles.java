@@ -37,7 +37,7 @@ public class CreateRoles implements
 
     @Override
     public void onApplicationEvent(ContextRefreshedEvent event) {
-      // Esta clase se ejecuta una sola vez para crear los roles /
+      // Esta clase se ejecuta una sola vez para crear los roles //
     /**   Rol rolAdmin = new Rol(RolNombre.ROLE_ADMIN);
         Rol rolUser = new Rol(RolNombre.ROLE_USER);
 
