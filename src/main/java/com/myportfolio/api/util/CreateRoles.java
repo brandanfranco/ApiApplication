@@ -39,7 +39,7 @@ public class CreateRoles implements
     public void onApplicationEvent(ContextRefreshedEvent event) {
       // Esta clase se ejecuta una sola vez para crear los roles /
     /**   Rol rolAdmin = new Rol(RolNombre.ROLE_ADMIN);
-        Rol rolUser = new Rol(RolNombre.ROLE_USER);
+        Rol rolUser = new Rol(RolNombre.ROLE_USER);:
 
         rolService.save(rolAdmin);
         rolService.save(rolUser); //Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
