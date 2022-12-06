@@ -32,7 +32,7 @@ public class CreateRoles implements
     
     public void run(String... args) throws Exception {
      
-// Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody*/
+
     }
 
     @Override
